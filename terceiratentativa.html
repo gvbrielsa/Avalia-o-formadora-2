@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+
+        input, select, button {
+            margin: 5px 0;
+            padding: 8px;
+        }
+
+        input:invalid {
+            border: 2px solid red;
+        }
+
+        input:valid {
+            border: 2px solid green;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                width: 90%;
+            }
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header></header>
+
+    <main>
+        <div>
+            <h1>Cadastro</h1>
+
+            <form> 
+                <label for="nome">Nome completo:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o seu Nome" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Digite o seu email" required>
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite a senha" minlength="6" required>
+
+                <label for="confirmarsenha">Confirmar senha:</label>
+                <input type="password" id="confirmarsenha" name="confirmarsenha" placeholder="Confirme a senha" required>
+
+                <label for="data">Data de nascimento</label>
+                <input type="date" id="data" name="data" required>
+
+                <label for="genero">Qual seu gênero?</label>
+                <select name="genero" id="genero">
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                </select>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Todos os direitos reservados™</p>
+    </footer>
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function(e) {
+            let senha = document.getElementById("senha").value;
+            let confirmar = document.getElementById("confirmarsenha").value;
+
+            if (senha !== confirmar) {
+                alert("As senhas não coincidem!");
+                e.preventDefault();
+            }
+        });
+    </script>
+
+</body>
+</html>
